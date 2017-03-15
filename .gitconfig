@@ -1,0 +1,63 @@
+[user]
+	name = karikari1255
+	email = f117karikari+github@gmail.com
+[core]
+	autocrlf = false
+	quotepath = false
+	editor = 'C:/Program Files (x86)/sakura/sakura.exe' -code=4
+	preloadindex = true
+	fscache = true
+[diff]
+	tool = "winMerge"
+[difftool "winMerge"]
+	cmd = \"C:/Program Files/WinMerge/WinMergeU.exe\" \"$LOCAL\" \"$REMOTE\"
+[merge]
+	tool = "winMerge"
+	ff = false
+[mergetool "winMerge"]
+	cmd = \"C:/Program Files/WinMerge/WinMergeU.exe\" //e //u //wl //wr \"$LOCAL\" \"$BASE\" \"$REMOTE\" //o \"$MERGED\"
+	trustExitCode = true
+	keepBackup = false
+[push]
+	default = current
+[fetch]
+	prune = true
+[alias]
+	pr = pull-request
+	prm = pull-request master
+	compm = "!f () { hub compare master...$1;};f"
+	co = checkout
+	st = status
+	cm = commit
+	cmm = commit -m
+	cmam = commit -am
+	ri = rebase -i
+	rh = reset --hard
+	me = merge
+	meto = mergetool
+	empty = commit --allow-empty -m 'first commit'
+	cpm = cherry-pick -m 1
+	delmb = !git branch --merged master | grep -v \\* | xargs -I % git branch -d %
+	newbr = !git fetch origin master && git checkout origin/master -b
+	cob = "!git fetch && f () { git checkout -b $1 origin/$1;};f"
+	difff = diff --word-diff
+	graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+	gr = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+	diffdir = difftool -d
+	difftooldir = difftool --dir-diff
+	dellog = log --diff-filter=D --summary
+	addlog = log --diff-filter=A --summary
+[difftool "sourcetree"]
+	cmd = 'C:/Program Files/WinMerge/WinMergeU.exe' \"$LOCAL\" \"$REMOTE\"
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[pull]
+	rebase = preserve
+[init]
+	templatedir = ~/.git_template
+[mergetool]
+	keepBackup = false
+[i18n]
+	commitencoding = UTF-8
